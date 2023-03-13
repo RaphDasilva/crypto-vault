@@ -1,20 +1,26 @@
 import React from 'react';
+import { AiOutlineSetting } from 'react-icons/ai';
+import { BiMicrophone } from 'react-icons/bi';
 import DisplayHomeItems from './DisplayHomeItems';
+import logo from '../assets/logo.JPG';
+import style from '../Style/HomePage.module.css';
 
 const HomePage = () => (
-  <div>
-    <div>
+  <div className={style.container}>
+    <div className={style.nav}>
       <div>
-        Logo
+        <img src={logo} alt="logo" width="100px" />
       </div>
-      <div>
-        <div>icon 1</div>
-        <div>icon 2</div>
+      <div className={style.icons}>
+        <div><BiMicrophone /></div>
+        <div><AiOutlineSetting /></div>
       </div>
     </div>
-    <div>
-      <h1>Crypto Vault</h1>
-      <p>40 coins</p>
+    <div className={style.heroSection}>
+      <div className={style.heroSectionText}>
+        <div>Crypto Vault</div>
+        <div className={style.ptag}>40 coins</div>
+      </div>
     </div>
     <DisplayHomeItems />
   </div>
