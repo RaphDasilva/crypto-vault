@@ -38,31 +38,43 @@ const DisplayHomeItems = () => {
         }}
       />
       <div className={style.itemWrapp}>
-        {
-        coins.filter((coin) => {
-          const filter = search.get('filter');
-          if (!filter) return true;
-          const name = coin.name.toLowerCase();
-          return name.startsWith(filter.toLowerCase());
-        }).map((item) => (
-          <div key={item.id} className={style.itemContainer}>
-            <div>
-              <div><BsArrowRightCircle title="backIcon" onClick={() => (clickArrow(item.id))} /></div>
-              <img className={style.img} src={item.image} alt={item.name} />
-            </div>
-            <div>
-              <div>{item.name}</div>
-              <div>
-                $
-                {item.current_price}
+        {coins
+          .filter((coin) => {
+            const filter = search.get('filter');
+            if (!filter) return true;
+            const name = coin.name.toLowerCase();
+            return name.startsWith(filter.toLowerCase());
+          })
+          .map((item) => (
+            <div key={item.id} className={style.itemContainer}>
+              <div className={style.items}>
+                <img className={style.img} src={item.image} alt={item.name} />
+                <div>
+                  <BsArrowRightCircle
+                    className={style.arrowRight}
+                    title="backIcon"
+                    onClick={() => clickArrow(item.id)}
+                  />
+                </div>
               </div>
-              <div>
-                {item.price_change_percentage_24h}
+              <div className={style.itemText}>
+                <div className={style.coinName}>{item.name}</div>
+                <div className={style.coinPrice}>
+                  $
+                  {item.current_price}
+                </div>
+                <div
+                  className={
+                    item.price_change_percentage_24h < 0
+                      ? style.priceLess
+                      : style.priceMore
+                  }
+                >
+                  {item.price_change_percentage_24h}
+                </div>
               </div>
             </div>
-          </div>
-        ))
-    }
+          ))}
       </div>
     </div>
   );
