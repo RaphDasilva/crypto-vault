@@ -1,9 +1,16 @@
 import { useSelector } from 'react-redux';
-import { IoIosArrowForward } from 'react-icons/io';
+import { BsArrowRightCircle } from 'react-icons/bs';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import style from '../Style/DisplayHomeItems.module.css';
 
 const DisplayHomeItems = () => {
+  const [search, setSearch] = useSearchParams();
   const { coins, status } = useSelector((store) => store.coins);
+  const navigate = useNavigate();
+
+  const clickArrow = (id) => {
+    navigate(`/details/${id}`);
+  };
 
   let outPut;
   if (status === 'loading') {
@@ -17,13 +24,30 @@ const DisplayHomeItems = () => {
   return (
     <div className={style.container}>
       <div>{outPut}</div>
-      <input type="search" placeholder="Search" />
+      <input
+        type="text"
+        placeholder="Search Here"
+        value={search.get('filter') || ''}
+        onChange={(e) => {
+          const filter = e.target.value;
+          if (filter) {
+            setSearch({ filter });
+          } else {
+            setSearch({});
+          }
+        }}
+      />
       <div className={style.itemWrapp}>
         {
-        coins.map((item) => (
+        coins.filter((coin) => {
+          const filter = search.get('filter');
+          if (!filter) return true;
+          const name = coin.name.toLowerCase();
+          return name.startsWith(filter.toLowerCase());
+        }).map((item) => (
           <div key={item.id} className={style.itemContainer}>
             <div>
-              <div><IoIosArrowForward /></div>
+              <div><BsArrowRightCircle title="backIcon" onClick={() => (clickArrow(item.id))} /></div>
               <img className={style.img} src={item.image} alt={item.name} />
             </div>
             <div>
@@ -32,7 +56,9 @@ const DisplayHomeItems = () => {
                 $
                 {item.current_price}
               </div>
-              <div>{item.price_change_percentage_24}</div>
+              <div>
+                {item.price_change_percentage_24h}
+              </div>
             </div>
           </div>
         ))
