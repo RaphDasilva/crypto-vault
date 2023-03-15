@@ -31,7 +31,6 @@ const DetailsPage = () => {
     );
   }
 
-  console.log(detail);
   return (
     <>
       {detail && (
