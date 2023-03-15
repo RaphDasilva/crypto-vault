@@ -1,65 +1,239 @@
-# React and Redux
+# Crypto-Vault
+<a name="readme-top"></a>
 
-If you are not familiar with linters and GitHub Actions, read [root level README](../README.md).
+<!-- TABLE OF CONTENTS -->
 
-## Set-up GitHub Actions
+# 📗 Table of Contents
 
-This GitHub Action is going to run [ESLint](https://eslint.org/) and [Stylelint](https://stylelint.io/) to help you find style issues.
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    <!-- - [Tech Stack](#tech-stack) -->
+    - [Key Features](#key-features) 
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  <!-- - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment) -->
+- [👥 Authors](#authors)
+<!-- - [🔭 Future Features](#future-features) -->
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+<!-- - [🙏 Acknowledgements](#acknowledgements) -->
+<!-- - [❓ FAQ](#faq) -->
+- [📝 License](#license)
 
-[Stylelint](https://stylelint.io/) is a linter for your stylesheets that helps you avoid errors and enforce conventions.
+<!-- PROJECT DESCRIPTION -->
 
-[ESLint](https://eslint.org/) is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+# 📖 [Crypto-Vault] <a name="about-project"></a>
 
-Please do the following **steps in this order**:
 
-1. In the first commit of your feature branch create a `.github/workflows` folder and add a copy of [`.github/workflows/linters.yml`](.github/workflows/linters.yml) to that folder.
-    - **Remember** to use the file linked above
-    - **Remember** that `.github` folder starts with a dot.
-2. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-3. When you open your first pull request you should see the result of the GitHub Actions:
+**[Crypto-Vault]**  is a mobile application that collates and display the updated cryptocurrency market data in real time. This application shows all major cryptocurrency, including their current price, market valuation, rank, and a lot others.
 
-![gh actions checks](../assets/images/gh-actions-eslint-stylelint-checks.png)
+## 🛠 Built With <a name="built-with"></a>
 
-Click on the `Details` link to see the full output and the errors that need to be fixed:
+- React.js
+- Redux
+- redux-toolkit
 
-![gh actions failing checks](../assets/images/gh-actions-html-css-failing-checks.png)
+<!-- ### Tech Stack <a name="tech-stack"></a>
 
-## Set-up linters in your local env
+<!-- ### Tech Stack <a name="tech-stack"></a> -->
 
-### ESLint
+<!-- > Describe the tech stack and include only the relevant sections that apply to your project. -->
+<!--
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+  </ul>
+</details>
 
-1. Run 
-    ```
-    npm install --save-dev eslint@7.x eslint-config-airbnb@18.x eslint-plugin-import@2.x eslint-plugin-jsx-a11y@6.x eslint-plugin-react@7.x eslint-plugin-react-hooks@4.x @babel/eslint-parser@7.x @babel/core@7.x  @babel/plugin-syntax-jsx@7.x  @babel/preset-react@7.x @babel/preset-react@7.x
-    ```
-    *not sure how to use npm? Read [this](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).*
-2. Copy [.eslintrc.json](./.eslintrc.json) and [.babelrc](./.babelrc) to the root directory of your project.
-3. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-4. Run `npx eslint "**/*.{js,jsx}"` on the root of your directory of your project.
-5. Fix linter errors.
-6. **IMPORTANT NOTE**: feel free to research [auto-correct options for Eslint](https://eslint.org/docs/latest/user-guide/command-line-interface#fixing-problems) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://expressjs.com/">Express.js</a></li>
+  </ul>
+</details>
 
-### Stylelint
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
+ -->
+ 
+<!-- Features -->
 
-1. Run
+ ### Key Features <a name="key-features"></a>
 
-   ```
-   npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
-   ```
 
-   *not sure how to use npm? Read [this](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).*
+- **[Shows a list of all available coins]**
+- **[Shows current price and 24hr percentage change for each coin on the homepage]**
+-  **[Show more details of each coin when clicked]**
 
-2. Copy [.stylelintrc.json](./.stylelintrc.json) to the root directory of your project.
-3. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-   - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-4. Run `npx stylelint "**/*.{css,scss}"` on the root of your directory of your project.
-5. Fix linter errors.
-6. **IMPORTANT NOTE**: feel free to research [auto-correct options for Stylelint](https://stylelint.io/user-guide/usage/options) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
 
-## Test/Deployment Actions
 
-Feel free to add your own deployment actions which can run your tests and deploy to Heroku.
 
-Make sure that you do not modify the [`.github/workflows/linters.yml`](.github/workflows/linters.yml) but that you create a separe GitHub Action workflow file for that.
+<p align="right">(<a href="#readme-top">back to top</a>)</p> 
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+
+- [Live Demo Link](Coming soon)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+In order to run this project you need:
+
+- Web Browser
+- Code Editor: [visual Studio code](https://code.visualstudio.com/)
+
+### Setup
+
+Clone this repository to your desired folder:
+
+1. Go to the [repository page](https://github.com/RaphDasilva/Crypto-Vault).
+2. Press the "Code" button and copy the link.
+3. Clone it using git command `git clone <link>`.
+
+### Install
+
+Install this project with:
+
+```
+npm install
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!--
+### Usage
+
+To run the project, execute the following command:
+
+<!--
+Example command:
+
+```sh
+  rails server
+```
+--->
+
+<!-- ### Run tests
+
+To run tests, run the following command: -->
+
+<!--
+Example command:
+
+```sh
+  bin/rails test test/models/article_test.rb
+```
+--->
+
+<!-- ### Deployment
+
+You can deploy this project using: -->
+
+<!--
+Example:
+
+```sh
+
+```
+ -->
+
+<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+
+<!-- AUTHORS -->
+
+## 👥 Authors <a name="authors"></a>
+
+
+👤 **Raphael Okolo**
+
+- GitHub: [@githubhandle](https://github.com/RaphDasilva)
+- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/raphael-okolo-480012227/)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+
+- [ ] **[Create a complete website with navigation.]**
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+
+If you like this project...
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+<!--
+## 🙏 Acknowledgments <a name="acknowledgements"></a> -->
+
+<!-- > Give credit to everyone who inspired your codebase.
+
+I would like to thank...
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+
+<!-- FAQ (optional) -->
+
+<!-- ## ❓ FAQ <a name="faq"></a>
+
+> Add at least 2 questions new developers would ask when they decide to use your project.
+
+- **[Question_1]**
+
+  - [Answer_1]
+
+- **[Question_2]**
+
+  - [Answer_2]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
